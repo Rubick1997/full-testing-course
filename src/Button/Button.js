@@ -12,6 +12,7 @@ function Button() {
       >
         Change to {newButtonColor}
       </button>
+      <input type="checkbox" />
     </div>
   );
 }
