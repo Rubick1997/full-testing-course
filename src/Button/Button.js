@@ -2,13 +2,12 @@ import React, { useState } from "react";
 
 function Button() {
   const [buttonColor, setButtonColor] = useState("red");
-  const newButtonColor = buttonColor === "red" ? "blue" : "red";
   const [disabled, setDisabled] = useState(false);
-
+  const newButtonColor = buttonColor === "red" ? "blue" : "red";
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: disabled ? "gray" : buttonColor }}
         onClick={() => setButtonColor(newButtonColor)}
         disabled={disabled}
       >
@@ -16,9 +15,11 @@ function Button() {
       </button>
       <input
         type="checkbox"
+        id="disable-button-checkbox"
         onChange={(e) => setDisabled(e.target.checked)}
         defaultChecked={disabled}
       />
+      <label htmlFor="disable-button-checkbox">Disable button</label>
     </div>
   );
 }
